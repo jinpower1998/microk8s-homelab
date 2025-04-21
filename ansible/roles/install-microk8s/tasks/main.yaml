@@ -1,0 +1,7 @@
+- name: install microk8s native
+  community.general.snap:
+    name:
+      - microk8s
+    options:
+      - classic
+    channel: 1.32

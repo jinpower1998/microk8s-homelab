@@ -1,0 +1,4 @@
+- name: Remove microk8s
+  community.general.snap:
+    name: microk8s
+    state: absent
