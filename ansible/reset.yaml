@@ -2,5 +2,5 @@
   name: Install Microk8s 
   become: true
   roles:
-    - install-microk8s
+    - remove-microk8s
     
