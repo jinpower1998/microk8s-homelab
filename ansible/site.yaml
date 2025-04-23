@@ -3,4 +3,3 @@
   become: true
   roles:
     - install-microk8s
-    

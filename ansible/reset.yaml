@@ -3,4 +3,3 @@
   become: true
   roles:
     - remove-microk8s
-    
