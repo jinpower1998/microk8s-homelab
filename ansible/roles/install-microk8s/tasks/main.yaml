@@ -9,14 +9,12 @@
   ansible.builtin.shell:
     cmd: ufw allow in on cni0 && ufw allow out on cni0; ufw default allow routed
 
-- name: enable plugins
-  ansible.builtin.shell:
-    cmd: microk8s enable dns && microk8s enable dashboard
-
-
 - name: show status
   ansible.builtin.shell:
     cmd: microk8s status --wait-ready
   register: out
 
 - debug: var=out.stdout_lines
+
+
+# cmd: ufw allow in on cni0 && ufw allow out on cni0; ufw default allow routed

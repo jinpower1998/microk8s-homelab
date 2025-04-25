@@ -1,4 +1,46 @@
-- name: Remove microk8s
-  community.general.snap:
-    name: microk8s
-    state: absent
+- name: add nodes
+  ansible.builtin.shell:
+    cmd: microk8s add-node --token-ttl 3600 --format short | tail -1
+  run_once: true
+  register: join_cmd
+
+- set_fact:
+    join_cmd: "{{ join_cmd.stdout }}"
+
+- name: join masters
+  ansible.builtin.shell: "{{ join_cmd }}"
+  register: join_cmd_master
+  when: 
+    - inventory_hostname in groups.masters
+    - inventory_hostname != play_hosts[0]
+  
+- name: join workers
+  ansible.builtin.shell: "{{ join_cmd }} --worker"
+  register: join_cmd_worker
+  when: 
+    - inventory_hostname in groups.workers
+
+- name: enable plugins
+  ansible.builtin.shell:
+    cmd: microk8s enable dns dashboard cert-manager ingress hostpath-storage
+  run_once: true
+
+- name: get kubeconfig
+  ansible.builtin.shell:
+    cmd: microk8s config
+  register: kubeconfig
+  run_once: true
+
+- set_fact:
+    kubeconfig: "{{ kubeconfig.stdout }}"
+
+- debug: var=kubeconfig
+  run_once: true
+
+- name: copy kubeconfig to localhost
+  ansible.builtin.lineinfile:
+    create: yes
+    line: "{{ kubeconfig }}"
+    destfile: ~/.kube/microk8s-config
+  delegate_to: localhost
+  run_once: true
