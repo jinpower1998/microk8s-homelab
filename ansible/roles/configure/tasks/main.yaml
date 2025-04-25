@@ -41,6 +41,6 @@
   ansible.builtin.lineinfile:
     create: yes
     line: "{{ kubeconfig }}"
-    destfile: ~/.kube/microk8s-config
+    path: /home/ubuntu/.kube/microk8s-config
   delegate_to: localhost
   run_once: true
