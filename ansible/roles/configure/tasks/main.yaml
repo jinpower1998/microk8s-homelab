@@ -37,10 +37,13 @@
 - debug: var=kubeconfig
   run_once: true
 
+- set_fact:
+    homedir: "{{ lookup('env','HOME') }}"
+
 - name: copy kubeconfig to localhost
   ansible.builtin.lineinfile:
     create: yes
     line: "{{ kubeconfig }}"
-    path: /home/ubuntu/.kube/microk8s-config
+    path: "{{ homedir }}/.kube/microk8s-config"
   delegate_to: localhost
   run_once: true
