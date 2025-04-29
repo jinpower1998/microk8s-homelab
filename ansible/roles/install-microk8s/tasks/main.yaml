@@ -5,9 +5,13 @@
     classic: true
     channel: "1.32"
 
-- name: enable fw-rules for cni-networking
-  ansible.builtin.shell:
-    cmd: ufw allow in on cni0 && ufw allow out on cni0; ufw default allow routed
+- name: enable ufw-rules for cni-networking
+  community.general.ufw:
+    rule: allow
+    interface_in: cni0
+    interface_out: cni0
+    direction: routedd
+
 
 - name: show status
   ansible.builtin.shell:
@@ -15,6 +19,3 @@
   register: out
 
 - debug: var=out.stdout_lines
-
-
-# cmd: ufw allow in on cni0 && ufw allow out on cni0; ufw default allow routed
