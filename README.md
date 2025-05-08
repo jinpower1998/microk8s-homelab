@@ -7,8 +7,9 @@
 
 ## Instructions
 
-This Ansible-Playbook creates a [mikrok8s](https://microk8s.io/)-Cluster with custom amount of nodes. 
-You can run this playbook anywhere you want: locally, On-Premise or on Cloud-Instances
+This Ansible-Playbook creates a [microk8s](https://microk8s.io/)-Cluster with custom amount of nodes. 
+
+You can run this playbook anywhere you want: locally, On-Premise or on Cloud-Instances.
 
 ### Prerequisites:
 
@@ -16,14 +17,21 @@ You can run this playbook anywhere you want: locally, On-Premise or on Cloud-Ins
   - [snap](https://snapcraft.io/) installed on your hosts and running
   - user for previlige escalation on your hosts
 
-###  Fill in your hosts file:
+###  Fill in your hosts file
 
+Your Kubernetes-Nodes/Hosts should be grouped into masters and workers.
+
+Localhost should also be in your hosts file
+
+Example:
+
+![](docs/images/screenshot-hosts.png)
 
 ### Run the Playbook
 
-- Locally
+#### Locally
 
-If you simply want the playbook to run locally:
+If you simply want to deploy a single-node cluster locally:
 
 ```
 ansible-playbook  --connection=local --inventory 127.0.0.1,  ansible/site.yaml --ask-become-pass
