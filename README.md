@@ -1,6 +1,4 @@
-# MicroK8s-Deploy
-
-### Simple playbook to spin up microk8s on any plattform !
+# Simple playbook to spin up microk8s on any plattform !
 
 
 ![](docs/images/ansible+microk8s.png)
