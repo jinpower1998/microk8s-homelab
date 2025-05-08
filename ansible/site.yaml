@@ -1,5 +1,5 @@
 - name: Install Microk8s
-  hosts: all
+  hosts: masters, workers
   become: true
   roles:
     - install-microk8s
