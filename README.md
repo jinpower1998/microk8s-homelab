@@ -29,10 +29,10 @@ Example:
 
 ### Run the Playbook
 
-#### Locally:
+#### Single-Node:
 
-If you simply want to deploy a single-node cluster locally
+If you simply want to deploy a single-node cluster
 
 ```
-ansible-playbook  --connection=local --inventory 127.0.0.1,  ansible/site.yaml --ask-become-pass
+ansible-playbook  --connection=local --inventory [Hostname/IP-Address],  ansible/site.yaml --ask-become-pass
 ``` 
