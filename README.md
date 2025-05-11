@@ -12,7 +12,7 @@ You can run this playbook anywhere you want: locally, On-Premise or on Cloud-Ins
 ### Prerequisites:
 
   - SSH-access on your machines
-  - [snap](https://snapcraft.io/) installed on your hosts and running
+  - [snapd](https://snapcraft.io/) installed on your hosts and running
   - user for previlige escalation on your hosts
 
 ###  Fill in your inventory file
