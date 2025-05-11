@@ -15,7 +15,7 @@ You can run this playbook anywhere you want: locally, On-Premise or on Cloud-Ins
   - [snap](https://snapcraft.io/) installed on your hosts and running
   - user for previlige escalation on your hosts
 
-###  Fill in your hosts file
+###  Fill in your inventory file
 
 Your Kubernetes-Nodes/Hosts should be grouped into masters and workers.
 
