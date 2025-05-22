@@ -28,6 +28,21 @@ Example:
 
 ### Run the Playbook
 
+```
+ ansible-playbook -i ansible/[YOUR-HOSTS-FILE] ansible/reset.yaml  --private-key=[YOUR-SSH-KEY] --user=[USERNAME]
+```
+
+With previlige escalation (depending how you're coennecting to your hosts):
+
+```
+ansible-playbook -i ansible/[YOUR-HOSTS-FILE] ansible/reset.yaml  --private-key=[YOUR-SSH-KEY] --become --user=[USERNAME] --ask-pass
+```
+
+or
+
+```
+ansible-playbook -i ansible/example-hosts.ini ansible/reset.yaml  --private-key=[YOUR-SSH-KEY] --become --user=[USERNAME]  --ask-become-pass
+```
 
 
 #### Single-Node
@@ -44,23 +59,7 @@ Locally:
 ansible-playbook  --connection=local --inventory 127.0.0.1,  ansible/site.yaml --ask-become-pass       
 ``` 
 
-### Note about installing snapd on Amazon-Linux !
+### NOTE !
 
-If you're using amazon-linux on aws-intances for your hosts, you may encounter the issue that snapd is not available via the default packet manager for amazon linux (yum, dnf). 
-In that case, please refer to the project [snapd-amazon-linux](https://github.com/bboozzoo/snapd-amazon-linux) by bboozzoo for installing snapd on amazon-linux.
+Please don't use this Repository for large  Enterprise- or Production-Environments !
 
-After you finished the installation, you can enable and  start the snapd-daemon and verify if it's running with:
-
-```
-sudo systemctl enable snapd.socket
-sudo systemctl start snapd.socket
-sudo systemctl status snapd.socket
-```
-
-or
-
-```
-sudo systemctl enable snapd
-sudo systemctl start snapd
-sudo systemctl status snapd
-```
