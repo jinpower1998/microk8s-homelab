@@ -17,7 +17,7 @@ You can run this playbook anywhere you want: locally, on-premise (for exampple P
   
 For the underlying OS of the nodes, I recommend Ubuntu or Debian- based operating systems. 
 
-## Note on cloud instances !
+### Note on cloud instances !
 
 Please make sure that your VPC's allow to the following [ports](https://microk8s.io/docs/services-and-ports) on the nodes to access the microk8s-services (i.E. you SecurityGroups etc.). 
 
