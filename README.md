@@ -16,7 +16,7 @@ You can run this playbook anywhere you want: locally, on-premise (for exampple P
   - [snapd](https://snapcraft.io/) installed on your hosts and running
   - user for previlige escalation on your hosts
   
-For the underlying O of the nodes, I recommend Ubuntu or Debian- based operating systems. 
+For the underlying OS of the nodes, I recommend Ubuntu or Debian- based operating systems. 
 
 ### Note on cloud instances !
 
