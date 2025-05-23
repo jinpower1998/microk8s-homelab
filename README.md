@@ -15,6 +15,8 @@ You can run this playbook anywhere you want: locally, On-Premise or on Cloud-Ins
   - SSH-access on your machines
   - [snapd](https://snapcraft.io/) installed on your hosts and running
   - user for previlige escalation on your hosts
+  
+For the underlying O of the nodes, I recommend Ubuntu or Debian- based operating systems. 
 
 ###  Fill in your inventory file
 
@@ -44,6 +46,8 @@ or
 ansible-playbook -i ansible/example-hosts.ini ansible/reset.yaml  --private-key=[YOUR-SSH-KEY] --become --user=[USERNAME]  --ask-become-pass
 ```
 
+The kubeconfig-file will be written directly under you `./kube` directory.
+
 
 #### Single-Node
 
@@ -62,3 +66,5 @@ ansible-playbook  --connection=local --inventory 127.0.0.1,  ansible/site.yaml -
 ### NOTE !
 
 Please don't use this repository for large enterprise- or production environments !
+
+Feel free to contribute to this project for further improvements !
