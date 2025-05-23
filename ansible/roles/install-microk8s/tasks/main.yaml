@@ -3,7 +3,7 @@
     name:
       - microk8s
     classic: true
-    channel: "1.32"
+    channel: "{{ channel_version }}"
 
 - name: enable ufw-rules for cni-networking
   ansible.builtin.shell:

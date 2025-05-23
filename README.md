@@ -33,20 +33,22 @@ Example:
 
 ## Run the Playbook
 
+Also specify the [channel-version](https://microk8s.io/docs/setting-snap-channel#choosing-the-right-channel) in the command as extra variable:
+
 ```
- ansible-playbook -i ansible/[YOUR-HOSTS-FILE] ansible/reset.yaml  --private-key=[YOUR-SSH-KEY] --user=[USERNAME]
+ ansible-playbook -i ansible/[YOUR-HOSTS-FILE] ansible/site.yaml -e channel_version=["VERSION"] --private-key=[YOUR-SSH-KEY] --user=[USERNAME]
 ```
 
 With previlige escalation (depending how you're coennecting to your hosts):
 
 ```
-ansible-playbook -i ansible/[YOUR-HOSTS-FILE] ansible/reset.yaml  --private-key=[YOUR-SSH-KEY] --become --user=[USERNAME] --ask-pass
+ansible-playbook -i ansible/[YOUR-HOSTS-FILE] ansible/site.yaml -e channel_version=["VERSION"] --private-key=[YOUR-SSH-KEY] --become --user=[USERNAME] --ask-pass
 ```
 
 or
 
 ```
-ansible-playbook -i ansible/example-hosts.ini ansible/reset.yaml  --private-key=[YOUR-SSH-KEY] --become --user=[USERNAME]  --ask-become-pass
+ansible-playbook -i ansible/example-hosts.ini ansible/site.yaml -e channel_version=["VERSION"] --private-key=[YOUR-SSH-KEY] --become --user=[USERNAME]  --ask-become-pass
 ```
 
 The kubeconfig-file will be written directly under your `./kube` directory.
@@ -57,13 +59,13 @@ The kubeconfig-file will be written directly under your `./kube` directory.
 If you simply want to deploy a single-node cluster
 
 ```
-ansible-playbook  --inventory [Hostname/IP-Address],  ansible/site.yaml --ask-become-pass
+ansible-playbook  --inventory [Hostname/IP-Address], -e channel_version=["VERSION"] ansible/site.yaml --ask-become-pass
 ``` 
 
 Locally:
 
 ```
-ansible-playbook  --connection=local --inventory 127.0.0.1,  ansible/site.yaml --ask-become-pass       
+ansible-playbook  --connection=local --inventory 127.0.0.1, -e channel_version=["VERSION"]  ansible/site.yaml --ask-become-pass       
 ``` 
 
 ### NOTE:
