@@ -17,7 +17,7 @@ You can run this playbook anywhere you want: locally, on-premise (for exampple P
   
 For the underlying OS of the nodes, I recommend Ubuntu or Debian- based operating systems. 
 
-### Note on cloud instances !
+### Note on cloud instances:
 
 Please make sure that your VPC's allow to the following [ports](https://microk8s.io/docs/services-and-ports) on the nodes to access the microk8s-services (i.E. you SecurityGroups etc.). 
 
@@ -49,7 +49,7 @@ or
 ansible-playbook -i ansible/example-hosts.ini ansible/reset.yaml  --private-key=[YOUR-SSH-KEY] --become --user=[USERNAME]  --ask-become-pass
 ```
 
-The kubeconfig-file will be written directly under you `./kube` directory.
+The kubeconfig-file will be written directly under your `./kube` directory.
 
 
 #### Single-Node
@@ -68,6 +68,6 @@ ansible-playbook  --connection=local --inventory 127.0.0.1,  ansible/site.yaml -
 
 ### NOTE !
 
-Please don't use this repository for large enterprise- or production environments !
+Please DO NOT use this cluster deployment for large enterprise- or production environments !
 
 ### Feel free to contribute to this project for further improvements !
