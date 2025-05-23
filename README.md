@@ -5,18 +5,22 @@
 
 ## Instructions
 
-This Ansible-Playbook creates a [microk8s](https://microk8s.io/)-Cluster with custom amount of nodes. 
+This simple Ansible-Playbook creates a [microk8s](https://microk8s.io/)-Cluster with custom amount of nodes. 
 
-You can run this playbook anywhere you want: locally, On-Premise or on Cloud-Instances.
+You can run this playbook anywhere you want: locally, on-premise (for exampple Proxmox or vCenter) or on cloud instances (AWS, Azure or GCP).
 
 ### Prerequisites:
 
-  - Ansible installed on your local machine
+  - Ansible installed on your local machine/control node
   - SSH-access on your machines
   - [snapd](https://snapcraft.io/) installed on your hosts and running
   - user for previlige escalation on your hosts
   
 For the underlying O of the nodes, I recommend Ubuntu or Debian- based operating systems. 
+
+### Note on cloud instances !
+
+Please make sure that your VPC's allow to the following [ports](https://microk8s.io/docs/services-and-ports) on the nodes to access the microk8s-services (i.E. you SecurityGroups etc.). 
 
 ###  Fill in your inventory file
 
