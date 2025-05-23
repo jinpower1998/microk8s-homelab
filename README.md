@@ -66,7 +66,7 @@ Locally:
 ansible-playbook  --connection=local --inventory 127.0.0.1,  ansible/site.yaml --ask-become-pass       
 ``` 
 
-### NOTE !
+### NOTE:
 
 Please DO NOT use this cluster deployment for large enterprise- or production environments !
 
